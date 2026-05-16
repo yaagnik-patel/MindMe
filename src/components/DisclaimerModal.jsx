@@ -11,10 +11,12 @@ const T = {
 
 const DisclaimerModal = ({ onAccept, onDecline }) => (
   <div style={{
-    position:"fixed",inset:0,zIndex:60,
-    display:"flex",alignItems:"center",justifyContent:"center",
-    padding:"16px",
-    background:"rgba(0,0,0,0.75)",backdropFilter:"blur(10px)",
+    position: "fixed", inset: 0, 
+    zIndex: 9999, /* FIX: Jacked up the z-index to guarantee it sits above the footer */
+    display: "flex", alignItems: "center", justifyContent: "center",
+    padding: "16px",
+    background: "rgba(0,0,0,0.75)", backdropFilter: "blur(10px)",
+    overflowY: "auto" /* FIX: Allows the modal itself to scroll on very small mobile screens */
   }}>
     <motion.div
       initial={{opacity:0,scale:0.94,y:12}}
@@ -24,6 +26,7 @@ const DisclaimerModal = ({ onAccept, onDecline }) => (
         background:T.surface, border:`1px solid ${T.borderHi}`,
         borderRadius:"10px", maxWidth:"580px", width:"100%",
         position:"relative", overflow:"hidden",
+        margin: "auto" /* Helps keep it centered if scrolling kicks in */
       }}>
 
       {/* Lime top accent line */}

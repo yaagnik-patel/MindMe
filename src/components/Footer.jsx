@@ -17,11 +17,10 @@ const links  = [
 const Footer = () => (
   <footer style={{
     background:T.bg, borderTop:`1px solid ${T.border}`,
-    position:"relative", zIndex:10,
+    position:"relative", zIndex:10, /* This stays lower than the modal's 9999 */
   }}>
     {/* Top row */}
     <div style={{
-      
       padding:"40px clamp(20px,4vw,48px) 28px",
       display:"flex", flexWrap:"wrap",
       alignItems:"flex-start", justifyContent:"space-between", gap:"32px",
@@ -69,7 +68,6 @@ const Footer = () => (
     <div style={{
       borderTop:`1px solid ${T.border}`,
       padding:"14px clamp(20px,4vw,48px)",
-      
       display:"flex", flexWrap:"wrap",
       alignItems:"center", justifyContent:"space-between", gap:"12px",
     }}>
