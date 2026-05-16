@@ -1,8 +1,3 @@
-Here is a professional, complete README.md tailored to the "MINDME / Check Your Mind" project you've been building. It replaces the default Vite boilerplate with a proper project description, feature list, and setup instructions.
-
-You can copy and paste this directly into your README.md file:
-
-Markdown
 # 🧠 MINDME — Mental Clarity Tools
 
 Understand your stress, mood, sleep, and anxiety in a focused, distraction-free space. **MINDME** is a privacy-first web application that provides research-backed mental health assessments directly on your device. 
