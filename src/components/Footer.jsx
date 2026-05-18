@@ -17,7 +17,7 @@ const links  = [
 const Footer = () => (
   <footer style={{
     background:T.bg, borderTop:`1px solid ${T.border}`,
-    position:"relative", zIndex:10, /* This stays lower than the modal's 9999 */
+    position:"relative", /* Removed zIndex: 10 to prevent overlapping with DisclaimerModal */
   }}>
     {/* Top row */}
     <div style={{

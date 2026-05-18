@@ -1,4 +1,5 @@
 import React from "react";
+import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
 import { AlertTriangle, HandHeart, X } from "lucide-react";
 
@@ -9,7 +10,7 @@ const T = {
   font:"'Syne',sans-serif", body:"'DM Sans',sans-serif",
 };
 
-const DisclaimerModal = ({ onAccept, onDecline }) => (
+const DisclaimerModal = ({ onAccept, onDecline }) => createPortal(
   <div style={{
     position: "fixed", inset: 0, 
     zIndex: 9999, /* FIX: Jacked up the z-index to guarantee it sits above the footer */
@@ -122,7 +123,8 @@ const DisclaimerModal = ({ onAccept, onDecline }) => (
         </motion.button>
       </div>
     </motion.div>
-  </div>
+  </div>,
+  document.body
 );
 
 export default DisclaimerModal;

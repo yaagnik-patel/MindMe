@@ -162,6 +162,34 @@ const Result = () => {
           </motion.div>
         )}
 
+        {/* Response Summary */}
+        <motion.div initial={{opacity:0,y:16}} animate={{opacity:1,y:0}} transition={{delay:0.38}}
+          style={{background:T.surface,border:`1px solid ${T.borderHi}`,borderRadius:"8px",padding:"24px",marginBottom:"16px"}}
+          className="print-break-inside-avoid">
+          <div style={{display:"flex",alignItems:"center",gap:"10px",marginBottom:"20px"}}>
+            <Info size={15} color={T.lime}/>
+            <span style={{fontFamily:T.font,fontWeight:800,fontSize:"14px",color:T.white,letterSpacing:"-0.01em"}}>
+              Your Responses
+            </span>
+          </div>
+          <div style={{display:"flex",flexDirection:"column",gap:"16px"}}>
+            {scale.questions.map((q, i) => {
+              const selectedVal = answers[i];
+              const selectedOpt = scale.options.find(o => o.value === selectedVal);
+              return (
+                <div key={i} style={{borderBottom: i === scale.questions.length - 1 ? "none" : `1px solid ${T.border}`, paddingBottom: i === scale.questions.length - 1 ? 0 : "12px"}}>
+                  <div style={{fontFamily:T.body,fontSize:"13px",color:T.mutedHi,marginBottom:"6px",lineHeight:1.4}}>
+                    <strong style={{color:T.muted}}>Q{i+1}.</strong> {q}
+                  </div>
+                  <div style={{fontFamily:T.body,fontSize:"14px",fontWeight:500,color:T.lime}}>
+                    {selectedOpt ? selectedOpt.text : "No answer"}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </motion.div>
+
         {/* Info cards */}
         <motion.div initial={{opacity:0,y:16}} animate={{opacity:1,y:0}} transition={{delay:0.4}}
           style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(min(100%,300px),1fr))",gap:"12px",marginBottom:"16px"}}>
@@ -218,6 +246,7 @@ const Result = () => {
 
         {/* Action buttons */}
         <motion.div initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} transition={{delay:0.5}}
+          className="no-print"
           style={{display:"flex",flexWrap:"wrap",gap:"8px",marginBottom:"20px"}}>
           <ActionBtn onClick={()=>navigate("/tests")} icon={RotateCcw} label="Take Another"/>
           <ActionBtn onClick={handleCopy} icon={Copy} label="Copy Summary"/>
@@ -225,7 +254,7 @@ const Result = () => {
         </motion.div>
 
         {/* Privacy note */}
-        <div style={{
+        <div className="no-print" style={{
           border:`1px solid ${T.border}`,borderRadius:"6px",
           padding:"12px 16px",
           display:"flex",alignItems:"center",gap:"8px",

@@ -19,7 +19,7 @@ function App() {
 
         <Navbar />
 
-        <main className="flex-grow relative z-10 w-full">
+        <main className="flex-grow w-full">
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/tests" element={<TestSelection />} />
